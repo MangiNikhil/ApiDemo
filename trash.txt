@@ -1,0 +1,153 @@
+
+/*
+
+****nodejs*********
+
+const fileSystem = require("fs");
+fileSystem.writeFile("nod.txt","hello world",function(err,result){
+if(err){
+    console.log(err);
+}
+else{
+
+    console.log(result);
+}
+});
+
+
+const fileSystem = require("fs");
+fileSystem.unlink("nod.txt",function(err,result){
+if(err){
+    console.log(err);
+}
+else{
+
+    console.log(result);
+}
+});
+
+// other fs operations are mkdir rmdir 
+
+
+const oprSys = require("os",function (err,result) {
+    if (err) {
+        console.log(err);
+    }
+});
+console.log(oprSys.platform());
+// more funcs  oprSys.arch()
+
+
+
+//http 
+
+
+const http=require("http",function(err,result){
+    if(err){
+    console.log(err);
+    }
+});
+http.createServer((request,response)=>{
+console.log("Hello world");
+console.log(request.headers);
+response.end("hello there this is a new port that i created.");
+}).listen(3000);
+console.log("Hello world");
+
+
+
+
+
+****express *****
+
+
+
+
+const express = require("express");
+// const { request } = require("https");
+const nod = express();
+nod.use(express.json());
+
+nod.get("/", (request,response)=>{
+     return  response.json({hello :" world"});
+});
+nod.listen(3000,()=>{
+    console.log("we're running on 3000 port");
+})
+
+nod.get("/b", (request,response)=>{
+    return  response.json({hello :" B route is working "});
+});
+
+nod.get("/b/:id", (request,response)=>{
+    const Std=[
+        {
+            id:"1",
+            name:"nikhil"
+        },
+        {
+            id:"2",
+            name:"nikhil2"
+        },
+        {
+            id:"3",
+            name:"nikhil3"
+        },
+        {
+            id:"4",
+            name:"nikhil4"
+        }
+    ];
+    const stdid= request.params.id;
+    console.log(stdid);
+    const student = Std.filter((stud)=> stdid==stud.id);
+     return  response.json({id: student});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+node proc
+
+
+
+
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'manginikhil2003@gmail.com',
+    pass: 'Nikhil@0529'
+  }
+});
+
+var mailOptions = {
+  from: 'manginikhil2003@gmail.com',
+  to: '21d45a0512@gmail.com',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+
+
+*/
